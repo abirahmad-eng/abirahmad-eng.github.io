@@ -5,1351 +5,448 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abir Ahmad — Civil Engineering Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0f1117;
-    --ink-light: #3a3d4a;
-    --ink-muted: #7a7f94;
-    --bg: #f7f5f0;
-    --bg-warm: #eeeae2;
-    --bg-dark: #12141a;
-    --accent: #1a3a5c;
-    --accent-mid: #2d5f8a;
-    --accent-light: #e8f0f8;
-    --gold: #b8892a;
-    --gold-light: #f5ead4;
-    --border: #d8d3c8;
-    --white: #ffffff;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(247,245,240,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--ink-light);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  .nav-resume {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--accent);
-    border: 1.5px solid var(--accent);
-    padding: 6px 16px;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-  }
-
-  .nav-resume:hover {
-    background: var(--accent);
-    color: var(--white);
-  }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 60px;
-  }
-
-  .hero-left {
-    background: var(--bg-dark);
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 64px 56px;
-    overflow: hidden;
-  }
-
-  .hero-left::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(ellipse at 30% 20%, rgba(26,58,92,0.4) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(184,137,42,0.15) 0%, transparent 50%);
-  }
-
-  .hero-left-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .hero-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .hero-title {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-    max-width: 320px;
-    margin-bottom: 40px;
-  }
-
-  .hero-social {
-    display: flex;
-    gap: 12px;
-  }
-
-  .hero-social a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 7px 14px;
-    transition: all 0.2s;
-    text-transform: uppercase;
-  }
-
-  .hero-social a:hover {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.5);
-  }
-
-  .hero-right {
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px;
-  }
-
-  .hero-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  .hero-about {
-    font-size: 1.05rem;
-    color: var(--ink-light);
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-
-  .hero-about + .hero-about {
-    margin-bottom: 40px;
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 40px;
-  }
-
-  .hero-stat {
-    background: var(--bg);
-    padding: 20px 16px;
-    text-align: center;
-  }
-
-  .hero-stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    color: var(--accent);
-    display: block;
-  }
-
-  .hero-stat-label {
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.04em;
-    margin-top: 2px;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 14px 32px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .btn-primary:hover { background: var(--accent-mid); }
-
-  .btn-outline {
-    display: inline-block;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    padding: 13px 32px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-left: 12px;
-  }
-
-  .btn-outline:hover {
-    background: var(--accent);
-    color: var(--white);
-  }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 100px 0;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 48px;
-  }
-
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    color: var(--ink);
-    margin-bottom: 56px;
-    line-height: 1.1;
-  }
-
-  /* ── EDUCATION ── */
-  #education { background: var(--bg-warm); }
-
-  .edu-grid {
-    display: grid;
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .edu-item {
-    background: var(--bg-warm);
-    padding: 36px 40px;
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 32px;
-    align-items: start;
-  }
-
-  .edu-year {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.06em;
-    padding-top: 4px;
-  }
-
-  .edu-degree {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-
-  .edu-inst {
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-
-  .edu-gpa {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--gold);
-    background: var(--gold-light);
-    display: inline-block;
-    padding: 3px 10px;
-    margin-bottom: 12px;
-  }
-
-  .edu-details {
-    font-size: 0.83rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-  }
-
-  .edu-badge {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 3px 10px;
-    margin: 3px 3px 0 0;
-    letter-spacing: 0.03em;
-  }
-
-  /* ── RESEARCH ── */
-  #research { background: var(--bg); }
-
-  .research-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  .research-text p {
-    font-size: 0.95rem;
-    color: var(--ink-light);
-    line-height: 1.85;
-    margin-bottom: 20px;
-  }
-
-  .research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 32px;
-  }
-
-  .tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    border: 1px solid var(--border);
-    color: var(--ink-light);
-    padding: 6px 14px;
-    background: var(--white);
-  }
-
-  .research-tools {
-    background: var(--bg-dark);
-    padding: 40px;
-  }
-
-  .tools-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 24px;
-  }
-
-  .tool-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .tool-row:last-child { border-bottom: none; }
-
-  .tool-name {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--white);
-  }
-
-  .tool-cat {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PROJECTS ── */
-  #projects { background: var(--bg-warm); }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .project-card {
-    background: var(--bg-warm);
-    padding: 40px;
-    transition: background 0.2s;
-  }
-
-  .project-card:hover { background: var(--white); }
-
-  .project-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
-
-  .project-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.05rem;
-    color: var(--ink);
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-
-  .project-desc {
-    font-size: 0.83rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-  }
-
-  .project-tag {
-    display: inline-block;
-    margin-top: 16px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-
-  /* ── SKILLS ── */
-  #skills { background: var(--bg); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .skill-group {
-    background: var(--bg);
-    padding: 36px 32px;
-  }
-
-  .skill-group-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-item {
-    font-size: 0.85rem;
-    color: var(--ink-light);
-    padding: 6px 0;
-    border-bottom: 1px solid var(--bg-warm);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .skill-item::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ── EXPERIENCE ── */
-  #experience { background: var(--bg-warm); }
-
-  .exp-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 48px;
-    padding: 48px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-  }
-
-  .exp-item:first-child { padding-top: 0; }
-  .exp-item:last-child { border-bottom: none; }
-
-  .exp-meta { padding-top: 4px; }
-
-  .exp-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.06em;
-    margin-bottom: 8px;
-  }
-
-  .exp-org {
-    font-size: 0.8rem;
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .exp-role {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    color: var(--ink);
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-
-  .exp-loc {
-    font-size: 0.78rem;
-    color: var(--ink-muted);
-    margin-bottom: 20px;
-  }
-
-  .exp-desc {
-    font-size: 0.88rem;
-    color: var(--ink-light);
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-
-  .exp-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .exp-list li {
-    font-size: 0.83rem;
-    color: var(--ink-muted);
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .exp-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 0.7rem;
-  }
-
-  /* ── ACHIEVEMENTS ── */
-  #achievements { background: var(--bg); }
-
-  .ach-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .ach-card {
-    background: var(--bg);
-    padding: 36px 40px;
-  }
-
-  .ach-icon {
-    font-size: 1.4rem;
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .ach-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1rem;
-    color: var(--ink);
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-
-  .ach-issuer {
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  .ach-desc {
-    font-size: 0.8rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-  }
-
-  /* ── MEMBERSHIPS ── */
-  #memberships { background: var(--bg-warm); }
-
-  .member-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .member-card {
-    background: var(--bg-warm);
-    padding: 32px;
-  }
-
-  .member-org {
-    font-family: 'DM Serif Display', serif;
-    font-size: 0.95rem;
-    color: var(--ink);
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-
-  .member-type {
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-
-  .member-id {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.04em;
-  }
-
-  .member-since {
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    margin-top: 8px;
-  }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--bg-dark); }
-
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-
-  #contact .section-title { color: var(--white); }
-  #contact .section-label { color: var(--gold); }
-
-  .contact-text {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
-
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .contact-item-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    width: 60px;
-    flex-shrink: 0;
-  }
-
-  .contact-item-val {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .contact-item-val a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .contact-item-val a:hover { color: var(--white); }
-
-  .contact-links {
-    display: flex;
-    gap: 10px;
-  }
-
-  .contact-link {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 10px 18px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-
-  .contact-link:hover {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.5);
-  }
-
-  .contact-right {
-    padding-top: 8px;
-  }
-
-  .contact-form-note {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .form-field label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-  }
-
-  .form-field input,
-  .form-field textarea {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: var(--white);
-    padding: 12px 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: none;
-  }
-
-  .form-field input:focus,
-  .form-field textarea:focus {
-    border-color: rgba(255,255,255,0.35);
-  }
-
-  .form-field input::placeholder,
-  .form-field textarea::placeholder {
-    color: rgba(255,255,255,0.2);
-  }
-
-  .btn-submit {
-    width: 100%;
-    background: var(--gold);
-    color: var(--white);
-    border: none;
-    padding: 15px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s;
-  }
-
-  .btn-submit:hover { background: #a07820; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--bg-dark);
-    border-top: 1px solid rgba(255,255,255,0.07);
-    padding: 24px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  footer p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: 0.06em;
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { min-height: 60vh; padding: 48px 28px; }
-    .hero-right { padding: 48px 28px; }
-    .research-layout,
-    .projects-grid,
-    .ach-grid,
-    .contact-layout,
-    .skills-grid,
-    .member-grid { grid-template-columns: 1fr; }
-    .exp-item { grid-template-columns: 1fr; gap: 8px; }
-    .container { padding: 0 24px; }
-    .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-  }
+:root{--navy:#1B3F6E;--navy-dark:#12294a;--navy-mid:#2563EB;--blue-light:#DBEAFE;--blue-mid:#93C5FD;--gold:#B45309;--gold-light:#FEF3C7;--white:#FFFFFF;--off-white:#F8FAFC;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-500:#64748B;--gray-600:#475569;--gray-800:#1E293B;--border:#CBD5E1;--nav-h:64px;--t:.3s ease}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--gray-800);font-size:16px;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--navy);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 40px;box-shadow:0 2px 20px rgba(0,0,0,.18)}
+.nav-logo{font-family:'Lora',serif;font-size:1.15rem;color:var(--white);text-decoration:none;cursor:pointer;transition:opacity var(--t)}.nav-logo span{color:var(--blue-mid)}.nav-logo:hover{opacity:.85}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links li a{font-size:.75rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;padding:6px 10px;border-radius:4px;letter-spacing:.03em;transition:all var(--t);cursor:pointer;white-space:nowrap}
+.nav-links li a:hover,.nav-links li a.active{color:var(--white);background:rgba(255,255,255,.12)}
+.nav-cta{font-size:.75rem;font-weight:600;color:var(--navy);background:var(--blue-mid);padding:8px 16px;border-radius:4px;text-decoration:none;letter-spacing:.04em;transition:all var(--t);cursor:pointer;white-space:nowrap;flex-shrink:0}.nav-cta:hover{background:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}.hamburger span{width:22px;height:2px;background:white;border-radius:2px}
+.page{display:none;min-height:100vh;padding-top:var(--nav-h)}.page.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:1100px;margin:0 auto;padding:0 48px}
+.page-header{background:var(--navy);padding:60px 0 52px;position:relative;overflow:hidden}
+.page-header::after{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.page-header::before{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.ph-inner{position:relative;z-index:1}
+.breadcrumb{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.14em;color:var(--blue-mid);text-transform:uppercase;margin-bottom:10px}
+.page-title{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.9rem);color:var(--white);font-weight:600;line-height:1.1}
+.page-sub{font-size:.9rem;color:rgba(255,255,255,.5);margin-top:10px}
+.section-body{padding:60px 0}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.12s}.reveal-delay-2{transition-delay:.24s}.reveal-delay-3{transition-delay:.36s}
+/* HOME */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - var(--nav-h))}
+.hero-left{background:var(--navy-dark);display:flex;flex-direction:column;justify-content:center;padding:64px 56px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(37,99,235,.28) 0%,transparent 55%),radial-gradient(ellipse at 85% 90%,rgba(180,83,9,.14) 0%,transparent 50%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:0}
+.hero-photo-wrap{width:200px;height:250px;overflow:hidden;margin-bottom:32px;flex-shrink:0;border:3px solid rgba(147,197,253,.2)}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.hero-photo-ph{width:200px;height:250px;background:rgba(37,99,235,.15);border:2px dashed rgba(147,197,253,.35);display:flex;align-items:center;justify-content:center;margin-bottom:32px}
+.hero-photo-ph span{font-size:.7rem;color:var(--blue-mid);text-align:center;padding:10px;line-height:1.6}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.hero-name{font-family:'Lora',serif;font-size:clamp(2.8rem,5.5vw,4.2rem);color:var(--white);line-height:1.06;margin-bottom:12px}
+.hero-name em{font-style:italic;color:rgba(255,255,255,.38)}
+.hero-role{font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.75;max-width:310px;margin-bottom:36px}
+.hero-social{display:flex;gap:8px;flex-wrap:wrap}
+.hero-social a{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.07em;color:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.14);padding:7px 14px;text-decoration:none;text-transform:uppercase;transition:all var(--t)}
+.hero-social a:hover{color:var(--white);border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+.hero-right{background:var(--white);display:flex;flex-direction:column;justify-content:center;padding:72px 64px}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.hero-bio{font-size:.97rem;color:var(--gray-600);line-height:1.88;margin-bottom:36px}.hero-bio strong{color:var(--gray-800);font-weight:600}
+.btn{display:inline-block;padding:13px 28px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all var(--t);cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-primary{background:var(--navy);color:var(--white)}.btn-primary:hover{background:var(--navy-mid)}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);background:transparent;margin-left:10px}.btn-outline:hover{background:var(--navy);color:var(--white)}
+/* EDUCATION */
+.timeline{display:flex;flex-direction:column;gap:3px}
+.tl-item{display:grid;grid-template-columns:200px 1fr;background:var(--white);border:1px solid var(--border);overflow:hidden;transition:box-shadow var(--t)}.tl-item:hover{box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.tl-left{background:var(--navy);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-start}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--blue-mid);letter-spacing:.06em;margin-bottom:6px;line-height:1.5}
+.tl-org{font-size:.77rem;color:rgba(255,255,255,.55);line-height:1.5}
+.tl-right{padding:30px 36px}
+.tl-degree{font-family:'Lora',serif;font-size:1.12rem;color:var(--gray-800);margin-bottom:8px;line-height:1.25}
+.tl-gpa{font-family:'JetBrains Mono',monospace;font-size:.71rem;color:var(--gold);background:var(--gold-light);display:inline-block;padding:3px 12px;margin-bottom:14px}
+.tl-detail{font-size:.83rem;color:var(--gray-600);line-height:1.78}.tl-detail strong{color:var(--gray-800)}
+.badge{display:inline-block;background:var(--blue-light);color:var(--navy);font-size:.69rem;font-weight:500;padding:3px 10px;margin:3px 3px 0 0;border-radius:2px}
+/* RESEARCH */
+.research-grid{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
+.research-text p{font-size:.95rem;color:var(--gray-600);line-height:1.88;margin-bottom:18px}.research-text p strong{color:var(--gray-800)}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.69rem;border:1px solid var(--border);color:var(--gray-500);padding:6px 14px;background:var(--white);transition:all var(--t)}.tag:hover{border-color:var(--navy);color:var(--navy)}
+.tools-box{background:var(--navy-dark);padding:36px}
+.tools-label{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:20px}
+.tool-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}.tool-row:last-child{border-bottom:none}
+.tool-name{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--white)}.tool-cat{font-size:.7rem;color:rgba(255,255,255,.32)}
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.project-card{background:var(--white);border:1px solid var(--border);display:flex;flex-direction:column;transition:box-shadow var(--t),transform var(--t)}.project-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.11);transform:translateY(-4px)}
+.project-img{width:100%;height:240px;overflow:hidden;background:var(--gray-100)}.project-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}.project-card:hover .project-img img{transform:scale(1.05)}
+.project-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.project-num{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.project-title{font-family:'Lora',serif;font-size:1.02rem;color:var(--gray-800);margin-bottom:12px;line-height:1.35}
+.project-desc{font-size:.83rem;color:var(--gray-600);line-height:1.75;flex:1}
+.project-footer{margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:16px;border-top:1px solid var(--border)}
+.project-tags{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.05em;color:var(--navy-mid);max-width:55%}
+.btn-project{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);border:1.5px solid var(--navy);padding:8px 18px;text-decoration:none;transition:all var(--t);display:inline-block;flex-shrink:0}.btn-project:hover{background:var(--navy);color:var(--white)}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--border);border:1px solid var(--border)}
+.skill-group{background:var(--white);padding:30px}
+.sg-title{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skill-item{font-size:.84rem;color:var(--gray-600);padding:7px 0;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:9px;transition:color var(--t)}.skill-item:last-child{border-bottom:none}
+.skill-item::before{content:'';width:5px;height:5px;background:var(--navy);border-radius:50%;flex-shrink:0;transition:background var(--t)}.skill-item:hover{color:var(--navy)}.skill-item:hover::before{background:var(--gold)}
+/* EXPERIENCE */
+.exp-item{padding:48px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}.exp-item:first-child{padding-top:0}.exp-item:last-child{border-bottom:none}
+.exp-date{font-family:'JetBrains Mono',monospace;font-size:.69rem;color:var(--gray-400);letter-spacing:.05em;margin-bottom:6px;line-height:1.6}
+.exp-org{font-size:.8rem;color:var(--navy-mid);font-weight:600}
+.exp-role{font-family:'Lora',serif;font-size:1.25rem;color:var(--gray-800);margin-bottom:6px;line-height:1.2}
+.exp-loc{font-size:.77rem;color:var(--gray-400);margin-bottom:18px}
+.exp-desc{font-size:.88rem;color:var(--gray-600);line-height:1.82;margin-bottom:14px}.exp-desc strong{color:var(--gray-800)}
+.exp-btns{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.exp-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:var(--navy);border:1.5px solid var(--border);padding:8px 16px;text-decoration:none;transition:all var(--t)}.exp-btn:hover{border-color:var(--navy);background:var(--navy);color:var(--white)}
+/* ACHIEVEMENTS */
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ach-card{background:var(--white);border:1px solid var(--border);padding:30px;position:relative;display:flex;flex-direction:column;transition:box-shadow var(--t),transform var(--t)}.ach-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.09);transform:translateY(-2px)}
+.ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--navy)}
+.ach-icon{font-size:1.6rem;margin-bottom:14px;display:block}
+.ach-title{font-family:'Lora',serif;font-size:.97rem;color:var(--gray-800);margin-bottom:6px;line-height:1.3}
+.ach-issuer{font-size:.73rem;color:var(--navy-mid);font-weight:500;margin-bottom:10px}
+.ach-desc{font-size:.79rem;color:var(--gray-600);line-height:1.68;flex:1}
+.ach-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.73rem;font-weight:600;color:var(--navy);border:1.5px solid var(--border);padding:7px 14px;text-decoration:none;transition:all var(--t)}.ach-link:hover{border-color:var(--navy);background:var(--navy);color:var(--white)}
+/* MEMBERSHIPS */
+.member-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--border);border:1px solid var(--border)}
+.member-card{background:var(--white);padding:30px;transition:background var(--t)}.member-card:hover{background:var(--gray-50)}
+.member-abbr{font-family:'Lora',serif;font-size:1.65rem;color:var(--navy);margin-bottom:6px;font-weight:600}
+.member-org{font-size:.84rem;color:var(--gray-800);font-weight:500;margin-bottom:4px;line-height:1.35}
+.member-type{font-size:.73rem;color:var(--navy-mid);margin-bottom:4px}
+.member-id{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--gray-400);margin-top:8px}
+/* EXTRA */
+.extra-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.extra-card{background:var(--white);border:1px solid var(--border);padding:28px;display:flex;gap:20px;align-items:flex-start;transition:box-shadow var(--t)}.extra-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.extra-icon{width:42px;height:42px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;font-weight:700;color:var(--navy);font-family:'Lora',serif}
+.extra-role{font-size:.9rem;font-weight:600;color:var(--gray-800);margin-bottom:3px;line-height:1.3}
+.extra-org{font-size:.8rem;color:var(--navy-mid);font-weight:500;margin-bottom:6px}
+.extra-dates{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--gray-400);margin-bottom:10px}
+.extra-cred{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--navy);border:1px solid var(--border);padding:5px 12px;text-decoration:none;transition:all var(--t)}.extra-cred:hover{border-color:var(--navy);background:var(--navy);color:var(--white)}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.contact-text{font-size:.93rem;color:var(--gray-600);line-height:1.85;margin-bottom:30px}
+.cinfo-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.cinfo-label{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);width:68px;flex-shrink:0;padding-top:2px}
+.cinfo-val{font-size:.87rem;color:var(--gray-600)}.cinfo-val a{color:var(--navy-mid);text-decoration:none;transition:color var(--t)}.cinfo-val a:hover{color:var(--navy)}
+.c-links{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
+.c-link{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);border:1.5px solid var(--navy);padding:9px 16px;text-decoration:none;transition:all var(--t)}.c-link:hover{background:var(--navy);color:var(--white)}
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:.71rem;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.form-field input,.form-field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);font-family:'Inter',sans-serif;font-size:.87rem;color:var(--gray-800);background:var(--white);outline:none;transition:border-color var(--t);resize:none}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--navy)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{width:100%;background:var(--navy);color:var(--white);border:none;padding:14px;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background var(--t)}.btn-submit:hover{background:var(--navy-mid)}
+footer{background:var(--navy-dark);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;color:rgba(255,255,255,.22);letter-spacing:.06em}
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--navy-dark);padding:12px 20px;gap:2px;border-top:1px solid rgba(255,255,255,.08)}.nav-links.open{display:flex}
+  .hamburger{display:flex}.nav-cta{display:none}
+  .hero-grid,.research-grid,.contact-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr}.tl-left{padding:16px 20px}
+  .skills-grid,.member-grid,.extra-grid,.ach-grid{grid-template-columns:1fr 1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr;gap:10px}
+  .hero-left{min-height:55vh;padding:44px 28px}.hero-right{padding:40px 28px}
+  .container{padding:0 22px}.page-header{padding:44px 0 36px}.section-body{padding:40px 0}
+}
+@media(max-width:600px){.skills-grid,.member-grid,.extra-grid,.ach-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Abir Ahmad</a>
-  <ul class="nav-links">
-    <li><a href="#education">Education</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <a class="nav-logo" onclick="showPage('home')">Abir <span>Ahmad</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('education')" id="nav-education">Education</a></li>
+    <li><a onclick="showPage('research')" id="nav-research">Research</a></li>
+    <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
+    <li><a onclick="showPage('skills')" id="nav-skills">Skills</a></li>
+    <li><a onclick="showPage('experience')" id="nav-experience">Experience</a></li>
+    <li><a onclick="showPage('achievements')" id="nav-achievements">Achievements</a></li>
+    <li><a onclick="showPage('memberships')" id="nav-memberships">Memberships</a></li>
+    <li><a onclick="showPage('extracurricular')" id="nav-extracurricular">Activities</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-resume">Get in Touch</a>
+  <a class="nav-cta" onclick="showPage('contact')">Get in Touch</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-left-content">
-      <p class="hero-eyebrow">Civil Engineering · IUT Bangladesh</p>
-      <h1 class="hero-name">Abir<br><em>Ahmad</em></h1>
-      <p class="hero-title">Transportation Engineering Researcher<br>Road Safety · ITS · Computer Vision</p>
-      <div class="hero-social">
-        <a href="mailto:abirahmad.ce@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/abirahmad-eng/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/abirahmad-eng" target="_blank">GitHub</a>
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-inner">
+        <div class="hero-photo-wrap">
+          <img src="https://drive.google.com/thumbnail?id=1lnwYrzJ71fLHumxbfd0047LH1ajIX-ZB&sz=w600" alt="Abir Ahmad" onerror="this.parentElement.outerHTML='<div class=hero-photo-ph><span>Photo loading...</span></div>'">
+        </div>
+        <h1 class="hero-name">Abir<br><em>Ahmad</em></h1>
+        <p class="hero-role">Aspiring Transportation Engineering Researcher<br>Road Safety · ITS · Computer Vision</p>
+        <div class="hero-social">
+          <a href="mailto:abirahmad.ce@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/abirahmad-eng/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/abirahmad-eng" target="_blank">GitHub</a>
+          <a href="https://orcid.org/0009-0004-3782-5302" target="_blank">ORCID</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <p class="hero-tag">// About Me</p>
-    <p class="hero-about">I'm a final-year Civil Engineering student at the Islamic University of Technology, specializing in Transportation Engineering. My current research focuses on video-based crash analysis at intersections using YOLOv8 and computer vision.</p>
-    <p class="hero-about">Beyond my research focus, my undergraduate training spans structural, geotechnical, environmental, and water resources engineering — giving me a grounded understanding of civil systems as a whole. I have also contributed to non-profit organizations, held leadership roles, and volunteered in meaningful community causes.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">3.65</span>
-        <span class="hero-stat-label">CGPA / 4.00</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">3.87</span>
-        <span class="hero-stat-label">Last 3 Sem.</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">5</span>
-        <span class="hero-stat-label">Projects</span>
-      </div>
+    <div class="hero-right">
+      <p class="hero-tag"> About Me</p>
+      <p class="hero-bio">Hi, I'm Abir Ahmad, a final-year Civil Engineering student at the <strong>Islamic University of Technology (IUT)</strong>. My academic journey has taken me across the full breadth of civil engineering, but my deepest interest lies in Transportation Engineering — particularly road safety, <strong>Intelligent Transportation Systems</strong>, and the use of computer vision to solve real-world mobility problems. Outside academics, I stay active in campus leadership and nonprofit work, and I'm always looking to connect with people working at the intersection of engineering, data, and impact.</p>
+      <a class="btn btn-primary" onclick="showPage('research')">View Research</a>
+      <a class="btn btn-outline" onclick="showPage('contact')">Connect</a>
     </div>
-    <a href="#research" class="btn-primary">View Research</a>
-    <a href="#contact" class="btn-outline">Connect</a>
   </div>
-</section>
+  <footer><p>© 2026 Abir Ahmad · Islamic University of Technology</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <p class="section-label fade-in">// 01 — Education</p>
-    <h2 class="section-title fade-in">Academic Background</h2>
-    <div class="edu-grid fade-in">
-      <div class="edu-item">
-        <div class="edu-year">Aug 2022<br>— Sep 2026<br>(Expected)</div>
-        <div>
-          <h3 class="edu-degree">B.Sc. in Civil Engineering</h3>
-          <p class="edu-inst">Islamic University of Technology — Gazipur, Bangladesh</p>
-          <span class="edu-gpa">CGPA 3.65 / 4.00 &nbsp;·&nbsp; Last 3 Semesters: 3.87 / 4.00</span>
-          <p class="edu-details"><strong>Transportation Specialization</strong><br><br>
-          <strong>Major Courses:</strong> Transportation and Traffic Engineering, Pavement and Railway Engineering, GIS Application in Civil Engineering, Civil Engineering Data Analysis.<br><br>
-          <strong>Non-major Courses:</strong> Water Supply Engineering, Open Channel Flow, Hydrology, Waste Management, Environmental Sanitation, Industrial Wastewater Engineering, Structure Analysis and Design, Design of Concrete Structures, Soil Mechanics, Foundation Engineering.<br><br>
-          <strong>Interdisciplinary:</strong> Python Programming, AutoCAD, Numerical Methods, Probability and Statistics, Engineering Economics, Project Planning and Management.</p>
-        </div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-year">Jul 2019<br>— Dec 2021</div>
-        <div>
-          <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
-          <p class="edu-inst">Notre Dame College — Dhaka, Bangladesh</p>
-          <span class="edu-gpa">GPA 5.00 / 5.00</span>
-          <p class="edu-details">
-            <span class="edu-badge">General Merit Scholarship</span>
-            <span class="edu-badge">Perfect Attendance Certificate</span>
-          </p>
-        </div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-year">Jan 2014<br>— Jun 2019</div>
-        <div>
-          <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
-          <p class="edu-inst">Bansherbada High School — Pabna, Bangladesh</p>
-          <span class="edu-gpa">GPA 5.00 / 5.00</span>
-          <p class="edu-details">
-            <span class="edu-badge">General Merit Scholarship</span>
-            <span class="edu-badge">President's Scout Award</span>
-          </p>
-        </div>
-      </div>
+<div class="page" id="page-education">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 01 — Education</p><h1 class="page-title">Academic Background</h1><p class="page-sub">Islamic University of Technology · Notre Dame College · Bansherbada High School</p></div></div>
+  <div class="section-body"><div class="container"><div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-left"><p class="tl-year">Aug 2022 — Sep 2026 (Expected)</p><p class="tl-org">Islamic University of Technology, Gazipur, Bangladesh</p></div>
+      <div class="tl-right"><h3 class="tl-degree">Bachelor of Science in Civil Engineering (Transportation Specialization)</h3><span class="tl-gpa">CGPA 3.65 / 4.00 · Last 3 Semesters: 3.87 / 4.00</span><p class="tl-detail"><strong>Major Courses:</strong> Transportation and Traffic Engineering, Transportation Projects and Operations, Public Transportation System, Pavement and Railway Engineering, GIS Application in Civil Engineering, Civil Engineering Data Analysis.<br><br><strong>Non-major Courses:</strong> Surveying, Water Supply Engineering, Open Channel Flow, Hydrology, Waste Management and Environmental Sanitation, Industrial Wastewater Engineering, Environmental Pollution and Its Control, Structure Analysis and Design (2 courses — 7 credits), Design of Concrete Structures (2 courses — 6 credits), Engineering Materials and Concrete Technology, Soil Mechanics, Foundation Engineering.<br><br><strong>Interdisciplinary Courses:</strong> Project Planning and Management, Engineering Economics and Accounting, Numerical Methods and Computer Programming, Probability and Statistics, Engineering Geology and Geomorphology, Ecology and Environment, Computer Programming and Application Lab (Python), Civil Engineering Drawing 2 (AutoCAD).</p></div>
     </div>
-  </div>
-</section>
+    <div class="tl-item reveal reveal-delay-1">
+      <div class="tl-left"><p class="tl-year">Jul 2019 — Dec 2021</p><p class="tl-org">Notre Dame College, Dhaka, Bangladesh</p></div>
+      <div class="tl-right"><h3 class="tl-degree">Higher Secondary Certificate (HSC)</h3><span class="tl-gpa">GPA 5.00 / 5.00</span><p class="tl-detail"><span class="badge">General Merit Scholarship</span><span class="badge">Perfect Attendance Certificate</span></p></div>
+    </div>
+    <div class="tl-item reveal reveal-delay-2">
+      <div class="tl-left"><p class="tl-year">Jan 2014 — Jun 2019</p><p class="tl-org">Bansherbada High School, Pabna, Bangladesh</p></div>
+      <div class="tl-right"><h3 class="tl-degree">Secondary School Certificate (SSC)</h3><span class="tl-gpa">GPA 5.00 / 5.00</span><p class="tl-detail"><span class="badge">General Merit Scholarship</span><span class="badge">President's Scout Award</span></p></div>
+    </div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- RESEARCH -->
-<section id="research">
-  <div class="container">
-    <p class="section-label fade-in">// 02 — Research</p>
-    <h2 class="section-title fade-in">Research Interests</h2>
-    <div class="research-layout fade-in">
-      <div class="research-text">
-        <p>My primary research focus is road safety and traffic conflict analysis using computer vision. For my undergraduate thesis, I am collecting real-world video footage from intersections and road sections, training custom object detection models using YOLOv8 and Roboflow, and extracting traffic conflict parameters to understand crash causation patterns.</p>
-        <p>Beyond video analytics, I work with microsimulation tools like SUMO to model traffic behavior and road dynamics. My broader interests span Intelligent Transportation Systems, mobility data science, and the application of machine learning to transportation safety problems.</p>
-        <p>These are areas I want to keep going deeper into — whether through graduate research or industry roles in transportation safety and ITS.</p>
-        <div class="research-tags">
-          <span class="tag">Intelligent Transportation Systems</span>
-          <span class="tag">Road Safety Analysis</span>
-          <span class="tag">Computer Vision</span>
-          <span class="tag">Traffic Conflict Theory</span>
-          <span class="tag">Microsimulation</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Mobility Data Science</span>
-        </div>
-      </div>
-      <div class="research-tools">
-        <p class="tools-label">// Tools & Technologies</p>
-        <div class="tool-row"><span class="tool-name">YOLOv8</span><span class="tool-cat">Object Detection</span></div>
-        <div class="tool-row"><span class="tool-name">Roboflow</span><span class="tool-cat">Annotation & Training</span></div>
-        <div class="tool-row"><span class="tool-name">SUMO</span><span class="tool-cat">Microsimulation</span></div>
-        <div class="tool-row"><span class="tool-name">PyTorch</span><span class="tool-cat">Deep Learning</span></div>
-        <div class="tool-row"><span class="tool-name">Python</span><span class="tool-cat">Data Analysis & Scripting</span></div>
-        <div class="tool-row"><span class="tool-name">QGIS</span><span class="tool-cat">GIS & Visualization</span></div>
-        <div class="tool-row"><span class="tool-name">SAM / CVAT</span><span class="tool-cat">Segmentation & Annotation</span></div>
-        <div class="tool-row"><span class="tool-name">STATA / Excel</span><span class="tool-cat">Statistical Analysis</span></div>
-      </div>
+<div class="page" id="page-research">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 02 — Research</p><h1 class="page-title">Research Interests</h1><p class="page-sub">Transportation Safety · Computer Vision · Intelligent Transportation Systems</p></div></div>
+  <div class="section-body"><div class="container"><div class="research-grid">
+    <div class="research-text reveal">
+      <p>My primary research focus is <strong>road safety and traffic conflict analysis using computer vision</strong>. For my undergraduate thesis, I am working with video footage collected from existing road cameras at intersections and road sections, training custom object detection models using <strong>YOLOv8 and Roboflow</strong>, and extracting traffic conflict parameters to better understand crash causation patterns.</p>
+      <p>Alongside this, I use <strong>Python</strong> for data processing and analysis, and plan to incorporate <strong>statistical modeling</strong> tools as the research progresses. I also work with <strong>SUMO</strong> for microsimulation, which helps me think about traffic behavior and road dynamics in a more structured way.</p>
+      <p>My broader interests span <strong>Intelligent Transportation Systems (ITS)</strong>, mobility data science, and the application of machine learning to transportation safety problems. These are areas I genuinely want to keep exploring, and I'm looking to pursue them further through doctoral research.</p>
+      <div class="tags-wrap"><span class="tag">Intelligent Transportation Systems</span><span class="tag">Road Safety Analysis</span><span class="tag">Computer Vision</span><span class="tag">Traffic Conflict Theory</span><span class="tag">Microsimulation</span><span class="tag">Machine Learning</span><span class="tag">Mobility Data Science</span></div>
     </div>
-  </div>
-</section>
+    <div class="tools-box reveal reveal-delay-1">
+      <p class="tools-label">// Tools & Technologies</p>
+      <div class="tool-row"><span class="tool-name">YOLOv8</span><span class="tool-cat">Object Detection</span></div>
+      <div class="tool-row"><span class="tool-name">Roboflow</span><span class="tool-cat">Annotation & Training</span></div>
+      <div class="tool-row"><span class="tool-name">SUMO</span><span class="tool-cat">Microsimulation</span></div>
+      <div class="tool-row"><span class="tool-name">PyTorch</span><span class="tool-cat">Deep Learning</span></div>
+      <div class="tool-row"><span class="tool-name">Python</span><span class="tool-cat">Data Processing</span></div>
+      <div class="tool-row"><span class="tool-name">QGIS</span><span class="tool-cat">GIS & Visualization</span></div>
+      <div class="tool-row"><span class="tool-name">SAM</span><span class="tool-cat">Segmentation</span></div>
+      <div class="tool-row"><span class="tool-name">Statistical Modeling</span><span class="tool-cat">Analysis</span></div>
+    </div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <p class="section-label fade-in">// 03 — Projects</p>
-    <h2 class="section-title fade-in">Academic Projects</h2>
-    <div class="projects-grid fade-in">
-      <div class="project-card">
-        <p class="project-num">PROJECT 01 · ONGOING THESIS</p>
-        <h3 class="project-title">Video-Based Traffic Conflict Analysis at Intersections Using YOLOv8</h3>
-        <p class="project-desc">Collecting real-world video footage from intersections and road sections. Building custom YOLOv8 detection models in Roboflow, extracting traffic conflict parameters to analyze crash causation patterns through computer vision and data analytics.</p>
-        <span class="project-tag">Computer Vision · Road Safety · YOLOv8 · Roboflow</span>
-      </div>
-      <div class="project-card">
-        <p class="project-num">PROJECT 02</p>
-        <h3 class="project-title">Comparative Statistical Analysis of Engineering Data: Manual vs. Software Validation</h3>
-        <p class="project-desc">Performed comparative analysis of engineering datasets using manual calculation methods alongside software-based validation tools to assess consistency, accuracy, and reliability of statistical outcomes in civil engineering data analysis.</p>
-        <span class="project-tag">Data Analysis · STATA · Python</span>
-      </div>
-      <div class="project-card">
-        <p class="project-num">PROJECT 03</p>
-        <h3 class="project-title">Planning and Design of Water Supply System for a Textile Industrial Village</h3>
-        <p class="project-desc">Designed a comprehensive water supply system for an industrial village setting, covering population forecasting, demand estimation, distribution network layout, pipe sizing, and treatment facility planning following standard engineering codes.</p>
-        <span class="project-tag">Water Supply · Infrastructure Design</span>
-      </div>
-      <div class="project-card">
-        <p class="project-num">PROJECT 04</p>
-        <h3 class="project-title">Integrated Load Analysis and RCC Design of a Six Storey Commercial Building Following BNBC 2020</h3>
-        <p class="project-desc">Conducted complete structural analysis and reinforced concrete design of a six-storey commercial building, applying Bangladesh National Building Code 2020 provisions for gravity and lateral load combinations, slab, beam, column and foundation design.</p>
-        <span class="project-tag">Structural Engineering · BNBC 2020 · RCC Design</span>
-      </div>
-      <div class="project-card">
-        <p class="project-num">PROJECT 05</p>
-        <h3 class="project-title">Structural Analysis and Design of a Steel Truss Bridge Using SAP2000</h3>
-        <p class="project-desc">Modeled and analyzed a steel truss bridge using SAP2000 finite element software. Applied dead, live, and wind load combinations to determine member forces, stress distributions, and critical design checks for structural integrity.</p>
-        <span class="project-tag">SAP2000 · Bridge Engineering · Structural Analysis</span>
-      </div>
-      <div class="project-card">
-        <p class="project-num">PROJECT 06</p>
-        <h3 class="project-title">Detailed Construction Drawings for a 6 Storey Residential Building</h3>
-        <p class="project-desc">Produced a complete set of professional construction drawings for a six-storey residential building using AutoCAD, including architectural floor plans, sections, elevations, structural detailing, and annotation following standard drafting conventions.</p>
-        <span class="project-tag">AutoCAD · Construction Drawing · Architectural Design</span>
+<div class="page" id="page-projects">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 03 — Projects</p><h1 class="page-title">Academic Projects</h1><p class="page-sub">Structural · Transportation · Water Resources · Design</p></div></div>
+  <div class="section-body"><div class="container"><div class="projects-grid">
+
+    <!-- P1: image 1D41mc3NJWx3DrOFnRfQ2-t2TxAtUn7J3 -->
+    <div class="project-card reveal">
+      <div class="project-img"><img src="https://drive.google.com/thumbnail?id=1D41mc3NJWx3DrOFnRfQ2-t2TxAtUn7J3&sz=w800" alt="Project 1" onerror="this.parentElement.style.display='none'"></div>
+      <div class="project-body">
+        <p class="project-num">PROJECT 01 · Nov 2025 – Mar 2026</p>
+        <h3 class="project-title">Structural Design and Analysis of an 8-Storied Reinforced Concrete Residential Building (BNBC 2020) using ETABS</h3>
+        <p class="project-desc">An individual academic project focused on the structural design and analysis of an 8-storied reinforced concrete residential building, carried out in compliance with the Bangladesh National Building Code (BNBC 2020). The project involved modeling the complete building structure in ETABS, defining load combinations, and analyzing structural behavior under gravity and lateral loads. Member sizing, reinforcement design, and code-based checks were performed to ensure the structure met safety and serviceability requirements. This project gave me a solid hands-on understanding of how structural analysis software translates real engineering principles into a buildable design.</p>
+        <div class="project-footer"><span class="project-tags">ETABS · MS Excel · BNBC 2020</span><a href="https://drive.google.com/drive/folders/17xGB5ilZTspdpNOqaOkErzLaxtEm7oIZ?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
       </div>
     </div>
-  </div>
-</section>
+
+    <!-- P2: image 193VUwOqBtTkyWf33PaSwbuOYF2T939sj -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-img"><img src="https://drive.google.com/thumbnail?id=193VUwOqBtTkyWf33PaSwbuOYF2T939sj&sz=w800" alt="Project 2" onerror="this.parentElement.style.display='none'"></div>
+      <div class="project-body">
+        <p class="project-num">PROJECT 02 · Jun 2025 – Oct 2025</p>
+        <h3 class="project-title">Planning and Design of Water Supply System for a Textile Industrial Village</h3>
+        <p class="project-desc">A group academic project completed as part of the CEE 4634 Environmental Engineering Sessional 2 course. The project involved the end-to-end planning and design of a water supply system for a hypothetical 100-acre textile industrial village. Starting from scratch, we prepared a company organogram and master layout with proper roadway alignment, estimated the population, and calculated the overall water demand for the village. Based on that, we designed industrial groundwater wells, sized and located pumping stations, and developed a complete water distribution network supported by hydraulic calculations. Final drawings were produced in AutoCAD, with all calculations and data management handled in Microsoft Excel.</p>
+        <div class="project-footer"><span class="project-tags">AutoCAD · Microsoft Excel · Industrial Planning</span><a href="https://drive.google.com/drive/folders/1bEIdQOBkYmhFfb4MKwSdfCm8bAF6_zg8?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
+      </div>
+    </div>
+
+    <!-- P3: image 1EGq35x8_KjUy9x0SIhG6KrID0HvdmDQ2 -->
+    <div class="project-card reveal">
+      <div class="project-img"><img src="https://drive.google.com/thumbnail?id=1EGq35x8_KjUy9x0SIhG6KrID0HvdmDQ2&sz=w800" alt="Project 3" onerror="this.parentElement.style.display='none'"></div>
+      <div class="project-body">
+        <p class="project-num">PROJECT 03 · Feb 2026 – Mar 2026</p>
+        <h3 class="project-title">Pedestrian Truss Bridge Design Using CSI SAP2000</h3>
+        <p class="project-desc">An individual academic project completed as part of the CEE 4712 Structural Analysis and Design Sessional II course. A full 3D pedestrian truss bridge model was developed in SAP2000 using A992Fy50 steel, with nine distinct member types including chords, diagonals, floor beams, stringers, bracings, and portal frames. Dead and factored pedestrian live loads were applied, and an iterative trial and error process was carried out to revise and finalize member sections until all members passed the stress and capacity check. The final design confirmed expected truss behavior, with bending moments confined to floor beams and stringers while main truss members carried pure axial forces.</p>
+        <div class="project-footer"><span class="project-tags">SAP2000 · Truss Bridge · Pedestrian Bridge</span><a href="https://drive.google.com/drive/folders/1gP1AJYqM28JLIelUADnjA3IRBOcwCWP7?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
+      </div>
+    </div>
+
+    <!-- P4: no image -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-body" style="padding-top:28px">
+        <p class="project-num">PROJECT 04 · May 2025 – Aug 2025</p>
+        <h3 class="project-title">Integrated Load Analysis and RCC Design of a Six Story Commercial Building Following BNBC 2020</h3>
+        <p class="project-desc">An individual academic project completed as part of the Design of Concrete Structures sessional. The project covered a full structural design workflow for a six-story reinforced concrete commercial building, following BNBC 2020 guidelines. I worked through every major structural component including slabs, staircases, beams, and columns, performing detailed vertical and lateral load calculations accounting for both wind and earthquake effects. Loads were distributed frame-wise to understand how individual members respond under combined loading conditions. ETABS was used for structural analysis, intermediate calculations were organized in Microsoft Excel, and final reinforcement detailing and construction drawings were completed in AutoCAD.</p>
+        <div class="project-footer"><span class="project-tags">AutoCAD · MS Excel · Seismic Design · Wind Load · ETABS</span><a href="https://drive.google.com/drive/folders/140O0apyH7gT1YQhDiPcBxuI2xOSYeBMX?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
+      </div>
+    </div>
+
+    <!-- P5: image 1pFg3sEGmArm71E9Npy-KmTUNUm_3wkyW -->
+    <div class="project-card reveal">
+      <div class="project-img"><img src="https://drive.google.com/thumbnail?id=1pFg3sEGmArm71E9Npy-KmTUNUm_3wkyW&sz=w800" alt="Project 5" onerror="this.parentElement.style.display='none'"></div>
+      <div class="project-body">
+        <p class="project-num">PROJECT 05 · August 2025</p>
+        <h3 class="project-title">Structural Analysis and Design of a Steel Truss Bridge Using SAP2000</h3>
+        <p class="project-desc">An individual academic project completed as part of the CEE 4614 Structural Analysis and Design Sessional 1 course. The project involved the structural analysis and design of an 11-meter steel truss bridge intended for an agricultural setting in Chittagong, a region characterized by significant wind exposure. A detailed 3D model was developed in SAP2000 with realistic support conditions and member properties. Load analysis covered dead loads including self-weight, roofing, and purlins, as well as live loads and wind loads calculated based on Chittagong's specified wind speed (80 m/s) and exposure category following BNBC 2020 provisions. Both windward and leeward wind effects were considered. Member forces were used to size and optimize the truss members for structural safety while keeping the design practical and economical.</p>
+        <div class="project-footer"><span class="project-tags">SAP2000 · Steel Design · Truss Bridge · Bridge Engineering</span><a href="https://drive.google.com/drive/folders/135Zp4dzMmouR6bebKs5sDKGcl4rKilw_?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
+      </div>
+    </div>
+
+    <!-- P6: no image -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-body" style="padding-top:28px">
+        <p class="project-num">PROJECT 06 · April 2023</p>
+        <h3 class="project-title">Detailed Architectural and Structural Drawings of a Six Storied Residential Building</h3>
+        <p class="project-desc">A group academic project completed as part of the CEE 4202 Civil Engineering Drawing II course. The project involved preparing a complete set of detailed drawings for a six storied residential building using AutoCAD. The drawing set covered floor plans for all levels including ground floor parking, first floor office space, and second to fifth floor apartment layouts. Structural drawings included column and beam layout plans, grade beam and floor beam long sections, footing layout, slab reinforcement details, stair reinforcement, column long sections with lapping and splice zone details, and beam column joint details. Each team member was responsible for specific sheets, contributing to a coordinated and complete drawing package.</p>
+        <div class="project-footer"><span class="project-tags">AutoCAD · Construction Drawing · Architectural Design</span><a href="https://drive.google.com/drive/folders/1PNjPGEioTu6Qd3XOEsSQLxJZX2FYxrFO?usp=drive_link" target="_blank" class="btn-project">View Project</a></div>
+      </div>
+    </div>
+
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <p class="section-label fade-in">// 04 — Skills</p>
-    <h2 class="section-title fade-in">Technical Skills</h2>
-    <div class="skills-grid fade-in">
-      <div class="skill-group">
-        <p class="skill-group-title">Computer Vision & AI</p>
-        <div class="skill-item">YOLOv8</div>
-        <div class="skill-item">Roboflow</div>
-        <div class="skill-item">PyTorch</div>
-        <div class="skill-item">SAM (Segment Anything)</div>
-        <div class="skill-item">CVAT</div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Programming & Data</p>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">STATA</div>
-        <div class="skill-item">MS Excel</div>
-        <div class="skill-item">Numerical Methods</div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Simulation & GIS</p>
-        <div class="skill-item">SUMO (Microsimulation)</div>
-        <div class="skill-item">QGIS</div>
-        <div class="skill-item">PLAXIS</div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Structural Analysis</p>
-        <div class="skill-item">SAP2000</div>
-        <div class="skill-item">ETABS</div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Design & Drafting</p>
-        <div class="skill-item">AutoCAD (Advanced)</div>
-        <div class="skill-item">Civil Engineering Drawing</div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Domain Knowledge</p>
-        <div class="skill-item">Transportation Engineering</div>
-        <div class="skill-item">Road Safety Analysis</div>
-        <div class="skill-item">Structural Design (RCC)</div>
-        <div class="skill-item">Geotechnical Engineering</div>
-        <div class="skill-item">Water Resources Engineering</div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="page" id="page-skills">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 04 — Skills</p><h1 class="page-title">Technical Skills</h1><p class="page-sub">Tools and software across civil and transportation engineering</p></div></div>
+  <div class="section-body"><div class="container"><div class="skills-grid reveal">
+    <div class="skill-group"><p class="sg-title">Computer Vision & AI</p><div class="skill-item">YOLOv8</div><div class="skill-item">Roboflow</div><div class="skill-item">PyTorch</div><div class="skill-item">SAM (Segment Anything)</div></div>
+    <div class="skill-group"><p class="sg-title">Programming & Data</p><div class="skill-item">Python</div><div class="skill-item">HTML</div><div class="skill-item">MS Excel</div></div>
+    <div class="skill-group"><p class="sg-title">Simulation & GIS</p><div class="skill-item">SUMO (Microsimulation)</div><div class="skill-item">QGIS</div></div>
+    <div class="skill-group"><p class="sg-title">Structural Analysis</p><div class="skill-item">SAP2000</div><div class="skill-item">ETABS</div></div>
+    <div class="skill-group"><p class="sg-title">Design & Drafting</p><div class="skill-item">AutoCAD</div><div class="skill-item">Civil Engineering Drawing (Manual)</div></div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <p class="section-label fade-in">// 05 — Experience</p>
-    <h2 class="section-title fade-in">Professional Development</h2>
-
-    <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <p class="exp-date">Sep 28 – Oct 23, 2025</p>
-        <p class="exp-org">DOHWA Engineering Co. Ltd.</p>
-      </div>
+<div class="page" id="page-experience">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 05 — Experience</p><h1 class="page-title">Professional Development</h1><p class="page-sub">Industrial training and teaching experience</p></div></div>
+  <div class="section-body"><div class="container">
+    <div class="exp-item reveal">
+      <div><p class="exp-date">Sep 28 – Oct 23, 2025</p><p class="exp-org">DOHWA Engineering Co. Ltd.</p></div>
       <div>
-        <h3 class="exp-role">Industrial Training</h3>
-        <p class="exp-loc">Dhaka, Bangladesh</p>
-        <p class="exp-desc">Completed an intensive 4-week industrial training with DOHWA Engineering Co. Ltd., one of South Korea's leading multidisciplinary consulting firms. Worked on two flagship infrastructure projects in Bangladesh:</p>
-        <ul class="exp-list">
-          <li><strong>Dhaka–Ashulia Elevated Expressway Project</strong> — ongoing multi-billion USD urban mobility corridor</li>
-          <li><strong>Dhaka Sanitation Improvement Project (DSIP)</strong> — World Bank-funded city-wide sanitation upgrade</li>
-          <li>Shadowed construction supervision teams gaining practical insight into quality assurance, safety compliance, and progress monitoring</li>
-          <li>Participated in technical coordination meetings, site inspections, and review of design drawings</li>
-          <li>Observed real-time decision-making in roadway geometry optimization and traffic management during construction</li>
-          <li>Deepened understanding of end-to-end project lifecycle from planning and design to field execution and stakeholder alignment</li>
-        </ul>
+        <h3 class="exp-role">Industrial Training</h3><p class="exp-loc">Dhaka, Bangladesh</p>
+        <p class="exp-desc">DOHWA Engineering is a multinational engineering consultancy firm with large scale infrastructure projects across Bangladesh and beyond. During this training, I gained firsthand exposure to how a professional consultancy firm operates across its various departments, from project planning and construction supervision to quality assurance, documentation, and site coordination.</p>
+        <p class="exp-desc">I had the opportunity to observe ongoing projects including the <strong>Dhaka-Ashulia Elevated Expressway</strong> and the <strong>Dhaka Sanitation Improvement Project</strong>, which gave me a real sense of how critical decisions are made on the ground and how they influence project timelines and outcomes. Interacting with experienced engineers and project teams helped me understand the gap between academic knowledge and industry practice — and more importantly, how to bridge it.</p>
+        <p class="exp-desc">This experience deepened my appreciation for structured project management, safety compliance, and the scale of coordination required in infrastructure delivery at a professional level.</p>
+        <div class="exp-btns">
+          <a href="https://drive.google.com/drive/folders/1xyvIJFztSrhaUYJiV8MbQFqmaGPj2gim?usp=drive_link" target="_blank" class="exp-btn">📄 View Certificate</a>
+          <a href="https://drive.google.com/drive/folders/1AHa_FzGfOCLG2pH2jpECGLrVIZ2k22uS?usp=drive_link" target="_blank" class="exp-btn">📷 Site Photo 1</a>
+          <a href="https://drive.google.com/drive/folders/13ZhjqiVwmfYMXabiAGoCSImEFA8AJJWd?usp=drive_link" target="_blank" class="exp-btn">📷 Site Photo 2</a>
+        </div>
       </div>
     </div>
-
-    <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <p class="exp-date">Jul 2025 – Present</p>
-        <p class="exp-org">IUT CAD Society</p>
-      </div>
+    <div class="exp-item reveal">
+      <div><p class="exp-date">Jul 2025 – Present</p><p class="exp-org">IUT CAD Society</p></div>
       <div>
-        <h3 class="exp-role">AutoCAD Instructor</h3>
-        <p class="exp-loc">Islamic University of Technology — Voluntary</p>
-        <p class="exp-desc">Serving as a lead instructor for the IUT CAD Society, a student-run platform advancing computer-aided design skills among civil, mechanical, and allied engineering students.</p>
-        <ul class="exp-list">
-          <li>Designed and delivered structured AutoCAD training workshops for 100+ junior students across multiple semesters</li>
-          <li>Covered fundamentals to advanced 2D drafting, layer management, annotation, and productivity tools</li>
-          <li>Provided one-on-one mentoring to first-year students, helping them achieve proficiency in professional-grade drawings</li>
-          <li>Co-developed a reusable resource library of templates and blocks that continues to benefit society members</li>
-        </ul>
+        <h3 class="exp-role">Instructor (AutoCAD)</h3><p class="exp-loc">Islamic University of Technology — Voluntary</p>
+        <p class="exp-desc">Served as a lead instructor for the IUT CAD Society, a student-run platform dedicated to advancing computer aided design skills among civil, mechanical, and allied engineering students at IUT.</p>
+        <p class="exp-desc">As a voluntary instructor, I conduct structured AutoCAD training workshops for junior engineering students. The sessions followed a fixed schedule and cover fundamentals through to 2D drafting proficiency, helping students build confidence in producing clean, accurate technical drawings. To date, I have worked with <strong>200+ students</strong> across multiple batches, providing both workshop instruction and one on one guidance where needed.</p>
+        <p class="exp-desc">It has been a genuinely rewarding experience. There is something satisfying about watching a first year student go from struggling with basic commands to submitting polished drawings for their coursework.</p>
+        <div class="exp-btns"><a href="https://drive.google.com/drive/folders/16465cEbYfo6X5abXyrJy9p59dX1sVgNC?usp=drive_link" target="_blank" class="exp-btn">📷 View Photos</a></div>
       </div>
     </div>
-  </div>
-</section>
+  </div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="container">
-    <p class="section-label fade-in">// 06 — Recognition</p>
-    <h2 class="section-title fade-in">Achievements & Awards</h2>
-    <div class="ach-grid fade-in">
-      <div class="ach-card">
-        <span class="ach-icon">🏆</span>
-        <h3 class="ach-title">Runners-Up — TRACTION 3.0, AutoCAD Advanced Category</h3>
-        <p class="ach-issuer">IUT CAD Society, Islamic University of Technology · April 2024</p>
-        <p class="ach-desc">Secured second position among 2nd to 4th year undergraduates across departments, demonstrating advanced proficiency in 2D and 3D CAD modeling, precision drafting, and innovative design using AutoCAD.</p>
-      </div>
-      <div class="ach-card">
-        <span class="ach-icon">🏆</span>
-        <h3 class="ach-title">Runners-Up — TRACTION 2.0, AutoCAD Beginner Segment</h3>
-        <p class="ach-issuer">IUT CAD Society, Islamic University of Technology · March 2023</p>
-        <p class="ach-desc">Achieved Runners-Up honors among first-year undergraduates from diverse departments, showcasing strong foundational expertise in 2D drafting, 3D modeling, and technical accuracy in AutoCAD applications.</p>
-      </div>
-      <div class="ach-card">
-        <span class="ach-icon">📜</span>
-        <h3 class="ach-title">General Merit Scholarship — HSC</h3>
-        <p class="ach-issuer">Board of Intermediate and Secondary Education, Dhaka · March 2022</p>
-        <p class="ach-desc">Awarded to the top ~1% of over 1.3 million HSC candidates across Bangladesh in 2021. Recognized with a monthly stipend from the Prime Minister's Education Assistance Trust.</p>
-      </div>
-      <div class="ach-card">
-        <span class="ach-icon">📜</span>
-        <h3 class="ach-title">General Merit Scholarship — SSC</h3>
-        <p class="ach-issuer">Board of Intermediate and Secondary Education, Rajshahi · December 2019</p>
-        <p class="ach-desc">Awarded to the top ~1% of over 2 million SSC candidates nationwide in 2019. Achieved GPA 5.00 with Golden A+ in all subjects. Awarded full tuition coverage for HSC studies.</p>
-      </div>
-      <div class="ach-card">
-        <span class="ach-icon">🎖️</span>
-        <h3 class="ach-title">President's Scout Award</h3>
-        <p class="ach-issuer">Bangladesh Scouts · October 2019</p>
-        <p class="ach-desc">The highest scouting recognition in Bangladesh, awarded by the President of the People's Republic of Bangladesh in a national investiture ceremony. Recognized for exemplary leadership, community service, and sustained commitment to youth development.</p>
-      </div>
-      <div class="ach-card">
-        <span class="ach-icon">✅</span>
-        <h3 class="ach-title">Perfect Attendance Certificate</h3>
-        <p class="ach-issuer">Notre Dame College, Dhaka · August 2021</p>
-        <p class="ach-desc">Awarded for 100% attendance across all classes, labs, and events over the entire two-year HSC program (2019–2021), including during the COVID-19 period. One of the most competitive institutions in Bangladesh.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="page" id="page-achievements">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 06 — Recognition</p><h1 class="page-title">Achievements & Awards</h1><p class="page-sub">Academic distinctions, national scholarships, and competition honors</p></div></div>
+  <div class="section-body"><div class="container"><div class="ach-grid">
+    <div class="ach-card reveal"><span class="ach-icon">🏆</span><h3 class="ach-title">Runners-Up, TRACTION 3.0 (AutoCAD Advanced Category)</h3><p class="ach-issuer">IUT CAD Society · April 2024</p><p class="ach-desc">Secured second place in the Advanced AutoCAD category of TRACTION 3.0, the annual flagship CAD competition organized by the IUT CAD Society, competing against second to fourth year students from across departments.</p><a href="https://drive.google.com/drive/folders/1OO-j2uXnDedtQrX9GIyvB4sHFYYcu5bF?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+    <div class="ach-card reveal reveal-delay-1"><span class="ach-icon">🏆</span><h3 class="ach-title">Runners-Up, TRACTION 2.0 (AutoCAD Beginner Segment)</h3><p class="ach-issuer">IUT CAD Society · March 2023</p><p class="ach-desc">Secured second place in the Beginner AutoCAD segment of TRACTION 2.0. Competed against first year students from various departments across IUT, demonstrating solid foundational skills in 2D drafting and technical accuracy during the very first year of undergraduate study.</p><a href="https://drive.google.com/drive/folders/12EVKy6qauprvcU_SxTLhWb-jPlSHaAls?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+    <div class="ach-card reveal reveal-delay-2"><span class="ach-icon">📜</span><h3 class="ach-title">General Merit Scholarship (HSC)</h3><p class="ach-issuer">Board of Education, Dhaka · March 2022</p><p class="ach-desc">Awarded the Government of Bangladesh's General Merit Scholarship for outstanding performance in the HSC Examination 2021, achieving a perfect GPA 5.00 (A+) under the Dhaka Education Board. Conferred on approximately the top 1% of over 1.3 million HSC candidates nationwide, with a monthly stipend from the Prime Minister's Education Assistance Trust.</p><a href="https://drive.google.com/drive/folders/1ME8DxHlNJwlw1k6kdmsASy9rJ1J7K8AT?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+    <div class="ach-card reveal"><span class="ach-icon">📜</span><h3 class="ach-title">General Merit Scholarship (SSC)</h3><p class="ach-issuer">Board of Education, Rajshahi · December 2019</p><p class="ach-desc">Awarded the Government of Bangladesh's General Merit Scholarship for exceptional performance in the SSC Examination 2019, achieving a perfect GPA 5.00 (A+) in all subjects under the Rajshahi Education Board. Granted to approximately the top 1% of over 2 million SSC candidates nationwide, with full tuition coverage for Higher Secondary studies and a monthly stipend.</p><a href="https://drive.google.com/drive/folders/1SWDvfxMfFi8PpxROZPO_Xad9g0diLkui?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+    <div class="ach-card reveal reveal-delay-1"><span class="ach-icon">🎖️</span><h3 class="ach-title">President's Scout Award</h3><p class="ach-issuer">Bangladesh Scouts · October 2019</p><p class="ach-desc">Recipient of the President's Scout Award, the highest honor in Bangladesh Scouts, presented directly by the President of the People's Republic of Bangladesh at a national investiture ceremony. Only a handful of scouts receive this recognition each year, selected through a rigorous multi-stage evaluation covering leadership, skill proficiency, community service, and demonstrated character. Earning this award required completing advanced training across first aid, pioneering, camping, and emergency preparedness, alongside sustained contributions to community development.</p><a href="https://drive.google.com/drive/folders/17QjLCGsohjax8JQdGGnM5pBo-Ns2J4HX?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+    <div class="ach-card reveal reveal-delay-2"><span class="ach-icon">✅</span><h3 class="ach-title">Perfect Attendance Certificate</h3><p class="ach-issuer">Notre Dame College · August 2021</p><p class="ach-desc">Awarded by Notre Dame College for maintaining 100% attendance across all classes, labs, and tutorials throughout the entire two year Higher Secondary program from 2019 to 2021 — including the COVID-19 period when classes shifted online. Notre Dame College is one of Bangladesh's most academically rigorous institutions, and this recognition is reserved only for students with zero absences across the full program.</p><a href="https://drive.google.com/drive/folders/1XOlotc6uhRIG6ee1ieCm5tyrg9UDs2Gj?usp=drive_link" target="_blank" class="ach-link">See Credential</a></div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- MEMBERSHIPS -->
-<section id="memberships">
-  <div class="container">
-    <p class="section-label fade-in">// 07 — Memberships</p>
-    <h2 class="section-title fade-in">Professional Organizations</h2>
-    <div class="member-grid fade-in">
-      <div class="member-card">
-        <h3 class="member-org">Institute of Transportation Engineers (ITE-A)</h3>
-        <p class="member-type">Student Member</p>
-        <p class="member-id">ID: 1102590</p>
-        <p class="member-since">August 2023 – Present</p>
-      </div>
-      <div class="member-card">
-        <h3 class="member-org">American Society of Civil Engineers (ASCE)</h3>
-        <p class="member-type">Society Student Member</p>
-        <p class="member-id">Member No: 000012592285</p>
-        <p class="member-since">December 2025 – Present</p>
-      </div>
-      <div class="member-card">
-        <h3 class="member-org">American Concrete Institute (ACI)</h3>
-        <p class="member-type">Student Member</p>
-        <p class="member-id">ID: 2192955</p>
-        <p class="member-since">August 2023 – Present</p>
-      </div>
-      <div class="member-card">
-        <h3 class="member-org">American Academy of Environmental Engineers and Scientists (AAEES)</h3>
-        <p class="member-type">Student Member</p>
-        <p class="member-id">Member No: 12883</p>
-        <p class="member-since">September 2022 – Present</p>
-      </div>
-      <div class="member-card">
-        <h3 class="member-org">World Organization of the Scout Movement</h3>
-        <p class="member-type">Member</p>
-        <p class="member-id">&nbsp;</p>
-        <p class="member-since">January 2014 – Present</p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="page" id="page-memberships">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 07 — Memberships</p><h1 class="page-title">Professional Organizations</h1><p class="page-sub">Active memberships in leading international engineering societies</p></div></div>
+  <div class="section-body"><div class="container"><div class="member-grid reveal">
+    <div class="member-card"><p class="member-abbr">ITE</p><p class="member-org">Institute of Transportation Engineers</p><p class="member-type">Student Member</p><p class="member-id">ID: 1102590 · Since August 2023</p></div>
+    <div class="member-card"><p class="member-abbr">ASCE</p><p class="member-org">American Society of Civil Engineers</p><p class="member-type">Society Student Member</p><p class="member-id">Member No: 12592285 · Since December 2025</p></div>
+    <div class="member-card"><p class="member-abbr">ACI</p><p class="member-org">American Concrete Institute</p><p class="member-type">Student Member</p><p class="member-id">ID: 2192955 · Since August 2023</p></div>
+    <div class="member-card"><p class="member-abbr">AAEES</p><p class="member-org">American Academy of Environmental Engineers and Scientists</p><p class="member-type">Student Member</p><p class="member-id">Member No: 12883 · Since September 2022</p></div>
+    <div class="member-card"><p class="member-abbr">WOSM</p><p class="member-org">World Organization of the Scout Movement</p><p class="member-type">Member</p><p class="member-id">Since January 2014</p></div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
+
+<!-- EXTRACURRICULAR -->
+<div class="page" id="page-extracurricular">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 08 — Leadership & Activities</p><h1 class="page-title">Extracurricular Activities</h1><p class="page-sub">Campus leadership, student organizations, and community service</p></div></div>
+  <div class="section-body"><div class="container"><div class="extra-grid">
+    <div class="extra-card reveal"><div class="extra-icon">A</div><div><p class="extra-role">Co-Head of Research and Development</p><p class="extra-org">Al Biruni Society of Scientific Studies</p><p class="extra-dates">December 2025 – Present</p><a href="https://drive.google.com/drive/folders/1YedCC5D1HoFswoNkHcU5ujLFi3uGgbM1?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+    <div class="extra-card reveal reveal-delay-1"><div class="extra-icon">I</div><div><p class="extra-role">Notable Member</p><p class="extra-org">IUT ITE Student Chapter</p><p class="extra-dates">January 2026 – Present</p><a href="https://drive.google.com/drive/folders/10WwXlN8HUCPq1mWLymVNmdVFieOvIIgW?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+    <div class="extra-card reveal"><div class="extra-icon">A</div><div><p class="extra-role">Assistant Head of Administration</p><p class="extra-org">ACI IUT Student Chapter</p><p class="extra-dates">November 2025 – Present</p><a href="https://drive.google.com/drive/folders/1yHzDPLs9hxmFioch02f0C144ceYzfLIA?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+    <div class="extra-card reveal reveal-delay-1"><div class="extra-icon">A</div><div><p class="extra-role">Secretary of Administration</p><p class="extra-org">ACI IUT Student Chapter</p><p class="extra-dates">August 2024 – November 2025</p><a href="https://drive.google.com/drive/folders/1TjJ5bj68U6OZ7ZOcXwA0rrf-D9A1n3dC?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+    <div class="extra-card reveal"><div class="extra-icon">A</div><div><p class="extra-role">Sub-Executive Committee Member</p><p class="extra-org">ACI IUT Student Chapter</p><p class="extra-dates">September 2023 – August 2024</p><a href="https://drive.google.com/drive/folders/1k8ENhFh01mgUCX9jHCzgKtp6Ai0YWD-x?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+    <div class="extra-card reveal reveal-delay-1"><div class="extra-icon">S</div><div><p class="extra-role">Senior Patrol Leader</p><p class="extra-org">Bansherbada M.L. High School Scout Group</p><p class="extra-dates">January 2018 – June 2019</p><a href="https://drive.google.com/drive/folders/1LfsRG0ALeKmv-qnTqFX2bseuat50fkLM?usp=drive_link" target="_blank" class="extra-cred">See Reference</a></div></div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-layout">
-      <div>
-        <p class="section-label">// 08 — Contact</p>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="contact-text">I'm open to connecting with researchers, faculty members, industry professionals, and anyone working in transportation engineering, road safety, or ITS. Feel free to reach out.</p>
-        <div class="contact-detail">
-          <div class="contact-item">
-            <span class="contact-item-label">Email</span>
-            <span class="contact-item-val"><a href="mailto:abirahmad.ce@gmail.com">abirahmad.ce@gmail.com</a></span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-item-label">Location</span>
-            <span class="contact-item-val">Gazipur, Bangladesh</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-item-label">Institute</span>
-            <span class="contact-item-val">Islamic University of Technology</span>
-          </div>
-        </div>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/abirahmad-eng/" target="_blank" class="contact-link">LinkedIn</a>
-          <a href="https://github.com/abirahmad-eng" target="_blank" class="contact-link">GitHub</a>
-          <a href="mailto:abirahmad.ce@gmail.com" class="contact-link">Email</a>
-        </div>
-      </div>
-      <div class="contact-right">
-        <p class="contact-form-note">Send a message directly — I typically respond within 48 hours.</p>
-        <div class="form-row">
-          <div class="form-field">
-            <label>First Name</label>
-            <input type="text" placeholder="John">
-          </div>
-          <div class="form-field">
-            <label>Last Name</label>
-            <input type="text" placeholder="Doe">
-          </div>
-        </div>
-        <div class="form-field">
-          <label>Email</label>
-          <input type="email" placeholder="john@university.edu">
-        </div>
-        <div class="form-field">
-          <label>Subject</label>
-          <input type="text" placeholder="Research collaboration / PhD inquiry">
-        </div>
-        <div class="form-field">
-          <label>Message</label>
-          <textarea rows="4" placeholder="Your message..."></textarea>
-        </div>
-        <button class="btn-submit" onclick="alert('Thank you for your message! I will get back to you soon.')">Send Message</button>
-      </div>
+<div class="page" id="page-contact">
+  <div class="page-header"><div class="container ph-inner"><p class="breadcrumb">// 09 — Contact</p><h1 class="page-title">Let's Connect</h1><p class="page-sub">Open to research collaborations, industry opportunities, and academic connections</p></div></div>
+  <div class="section-body"><div class="container"><div class="contact-grid">
+    <div class="reveal">
+      <p class="contact-text">I'm open to connecting with researchers, faculty members, industry professionals, and anyone working in transportation engineering, road safety, or ITS. Feel free to reach out.</p>
+      <div class="cinfo-item"><span class="cinfo-label">Email</span><span class="cinfo-val"><a href="mailto:abirahmad.ce@gmail.com">abirahmad.ce@gmail.com</a></span></div>
+      <div class="cinfo-item"><span class="cinfo-label">Location</span><span class="cinfo-val">Dhaka, Bangladesh</span></div>
+      <div class="cinfo-item"><span class="cinfo-label">Institute</span><span class="cinfo-val">Islamic University of Technology</span></div>
+      <div class="cinfo-item"><span class="cinfo-label">ORCID</span><span class="cinfo-val"><a href="https://orcid.org/0009-0004-3782-5302" target="_blank">0009-0004-3782-5302</a></span></div>
+      <div class="c-links"><a href="https://www.linkedin.com/in/abirahmad-eng/" target="_blank" class="c-link">LinkedIn</a><a href="https://github.com/abirahmad-eng" target="_blank" class="c-link">GitHub</a><a href="mailto:abirahmad.ce@gmail.com" class="c-link">Email</a></div>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Abir Ahmad · Islamic University of Technology</p>
-  <p>abirahmad-eng.github.io</p>
-</footer>
+    <div class="reveal reveal-delay-1">
+      <p style="font-size:.8rem;color:var(--gray-400);margin-bottom:20px">Send a message — I typically respond within 48 hours.</p>
+      <div class="form-row"><div class="form-field"><label>First Name</label><input type="text" placeholder="John"></div><div class="form-field"><label>Last Name</label><input type="text" placeholder="Doe"></div></div>
+      <div class="form-field"><label>Email</label><input type="email" placeholder="john@university.edu"></div>
+      <div class="form-field"><label>Subject</label><input type="text" placeholder="Research collaboration / PhD inquiry"></div>
+      <div class="form-field"><label>Message</label><textarea rows="5" placeholder="Your message..."></textarea></div>
+      <button class="btn-submit" onclick="alert('Thank you for reaching out! I will get back to you soon.')">Send Message</button>
+    </div>
+  </div></div></div>
+  <footer><p>© 2026 Abir Ahmad · Islamic University of Technology</p><p>abirahmad-eng.github.io</p></footer>
+</div>
 
 <script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Nav active state
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 80;
-      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
-    });
-  });
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  const el=document.getElementById('nav-'+name);
+  if(el)el.classList.add('active');
+  window.scrollTo(0,0);
+  document.getElementById('navLinks').classList.remove('open');
+  setTimeout(initReveal,50);
+}
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+  },{threshold:0.08});
+  document.querySelectorAll('.page.active .reveal').forEach(el=>{el.classList.remove('visible');obs.observe(el)});
+}
+document.addEventListener('DOMContentLoaded',initReveal);
 </script>
-
 </body>
 </html>
